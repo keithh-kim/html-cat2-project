@@ -19,7 +19,8 @@
 /* Custom Hero Banner - Total Design Autonomy */
 .hero-banner {
     /* Inject your custom background color here (e.g., a dark navy/slate mix) */
-    background: linear-gradient(135deg, #24303b 0%, #384959 100%) !important;
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%) !important;
+    /*background: linear-gradient(135deg, #24303b 0%, #384959 100%) !important;*/
     
     /* Ensure explicit padding for mobile/desktop spacing balance */
     padding: 6rem 0 !important;
