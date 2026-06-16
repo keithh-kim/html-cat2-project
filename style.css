@@ -1,35 +1,93 @@
 /* ==========================================================================
    1. DESIGN TOKENS (Variables)
-   Changing these values updates your entire website's theme instantly.
    ========================================================================== */
-
 :root {
-    /* "Stormy Morning" Hex Map */
-    --brand-primary: #88BDF2;       /* Vibrant Sky Blue - for active tabs, links, and main buttons */
-    --brand-accent: #BDDDFC;        /* Ultra-Light Mist - for subtle card borders, tags, or hover fills */
-    --brand-muted-blue: #6A89A7;    /* Steel Blue-Gray - for icons, subtitles, and decorative elements */
-    /* --brand-dark: #384959;          /* Deep Slate Shadow - for headers, footers, and navigation bars */
+    /* "Stormy Morning" Core Palette Matrix */
+    --brand-primary: #88BDF2;       /* Vibrant Sky Blue - active tabs, main buttons */
+    --brand-accent: #BDDDFC;        /* Ultra-Light Mist - borders, text gradients, tags */
+    --brand-muted-blue: #6A89A7;    /* Steel Blue-Gray - icons, secondary typography */
+    --brand-dark: #1e293b;          /* Dark Slate Anchor - matching your hero base gradient */
     
     /* Layout Tokens */
-    --brand-light: #fdfefe;         /* Off-white background for clean readability */
-    --text-main: #1f2937;           /* Sharp charcoal body text for perfect contrast */
+    --brand-light: #fdfefe;         /* Off-white background for main page areas */
+    --text-main: #1f2937;           /* Deep charcoal text for optimal readability */
     --card-shadow: 0 4px 6px -1px rgba(56, 73, 89, 0.06), 0 2px 4px -1px rgba(56, 73, 89, 0.04);
     --transition-smooth: all 0.25s ease-in-out;
 }
-/* Custom Hero Banner - Total Design Autonomy */
+
+/* ==========================================================================
+   2. GLOBAL BODY RESETS
+   ========================================================================== */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--text-main);
+    background-color: var(--brand-light);
+    
+    /* Sticky Footer Logic: Keeps footer locked to screen bottom */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   3. MODERN TRANSPARENT NAVBAR (Consolidated & Repaired)
+   ========================================================================== */
+.navbar {
+    /* Safe fallback: Semi-transparent deep dark tint instead of pure invisible layout */
+    background-color: rgba(15, 23, 42, 0.85) !important; 
+    
+    /* Subtle framing border */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 1rem 0;
+    
+    /* Glassmorphism hardware acceleration */
+    backdrop-filter: blur(12px) !important; 
+    -webkit-backdrop-filter: blur(12px) !important; 
+    
+    /* Pulls the navbar up to ensure it sits completely flush against the hero gradient */
+    margin-bottom: 0 !important;
+}
+
+/* Ensure the brand name stands out in crisp white */
+.navbar-brand {
+    font-size: 1.35rem;
+    letter-spacing: 0.5px;
+    color: #ffffff !important;
+}
+
+/* Custom Nav Links Layout and Token Integration */
+.navbar .nav-link {
+    color: var(--brand-accent) !important; /* Soft ice-mist blue link color */
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    padding: 0.5rem 1rem !important;
+    transition: var(--transition-smooth);
+}
+
+/* Hover text glow */
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: #ffffff !important; 
+    text-shadow: 0 0 10px rgba(136, 189, 242, 0.4); 
+}
+
+/* Mobile Toggle Hamburger Icon Settings */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ==========================================================================
+   4. CUSTOM HERO BANNER 
+   ========================================================================== */
 .hero-banner {
-    /* Inject your custom background color here (e.g., a dark navy/slate mix) */
+    /* Rich Deep Midnight Blue to Slate Gradient */
     background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%) !important;
-    /*background: linear-gradient(135deg, #24303b 0%, #384959 100%) !important;*/
-    
-    /* Ensure explicit padding for mobile/desktop spacing balance */
     padding: 6rem 0 !important;
-    
-    /* Subtle structural frame border at the bottom */
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Keeps your text color clean and highly visible inside the custom banner */
+/* Masked Gradient Headline */
 .hero-banner h1 {
     font-size: 3.5rem !important;
     background: linear-gradient(120deg, #ffffff 30%, var(--brand-accent) 100%);
@@ -39,84 +97,75 @@
     line-height: 1.15;
 }
 
+/* Highly readable description layout */
 .hero-banner .text-secondary {
     color: #cbd5e1 !important; 
     font-size: 1.25rem;
     font-weight: 300;
     max-width: 700px;
     margin: 1.5rem auto !important;
-}
-/* ==========================================================================
-   2. GLOBAL BODY RESETS
-   Configures the base layout behavior of your web app.
-   ========================================================================== */
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    color: var(--text-main);
-    background-color: var(--brand-light);
-    
-    /* Sticky Footer Logic: Forces footer to bottom even on short pages */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* ==========================================================================
-   3. BRAND NAVIGATION CUSTOMIZATION
-   Fine-tuning the default Bootstrap navbar.
-   ========================================================================== */
-.navbar {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.navbar-brand {
-    letter-spacing: 0.5px;
-    font-size: 1.35rem;
-}
-
-/* Custom styling for the mobile hamburger button */
-.navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.15) !important;
-}
-
-.navbar-toggler:focus {
-    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25) !important;
-}
-
-/* ==========================================================================
-   4. HERO / BANNER HARDENING
-   Fixes the hard-to-read text issues from raw Bootstrap defaults.
-   ========================================================================== */
-header.bg-dark {
-    background-color: var(--brand-dark) !important; /* Force our rich dark instead of Bootstrap black */
-}
-
-/* Makes your description paragraph jump out with crystal clear contrast */
-header .text-secondary {
-    color: #cbd5e1 !important; 
-    font-size: 1.15rem;
-    font-weight: 300;
     line-height: 1.6;
 }
 
 /* ==========================================================================
-   5. PREMIUM COMPONENT MODIFICATIONS
-   Elevates basic cards into production-ready dashboard components.
+   5. PREMIUM CARD INTERACTIONS
    ========================================================================== */
 .card {
     box-shadow: var(--card-shadow);
-    border-radius: 12px !important; /* Smooth professional rounded edges */
+    border-radius: 12px !important; 
     transition: var(--transition-smooth);
 }
 
-/* Micro-interaction animation when hovering over core consulting pillars */
+/* Smooth micro-interaction physical hover drift */
 .card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 20px -3px rgba(56, 73, 89, 0.12);
 }
 
-/* Ensure the titles inside your cards stand out cleanly */
+/* Using our updated variable anchor so titles look intentional */
 .card h3 {
     color: var(--brand-dark);
     font-size: 1.25rem;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE MEDIA QUERIES (Offcanvas Sidebar Hardening)
+   ========================================================================== */
+@media (max-width: 991.98px) {
+    .offcanvas.text-bg-dark {
+        background-color: #1e2730 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    
+    .offcanvas-body .navbar-nav {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+        padding-top: 1rem !important;
+    }
+}
+/* ==========================================================================
+   OFFCANVAS MASTER RESET 
+   ========================================================================== */
+
+/* 1. Ensure the drawer stays hidden by default until the script calls it */
+.offcanvas:not(.show) {
+    visibility: hidden !important;
+    transform: translateX(100%) !important; /* Forces it completely off-screen to the right */
+}
+
+/* 2. When the user taps the button, let Bootstrap slide it into view smoothly */
+.offcanvas.show {
+    visibility: visible !important;
+    transform: translateX(0) !important;
+    background-color: #1a2229 !important; /* Keeps it a solid, rich dark tone */
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* 3. Completely block the mobile menu from showing up on large screens */
+@media (min-width: 992px) {
+    .offcanvas {
+        display: none !important;
+    }
 }
