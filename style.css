@@ -1,0 +1,88 @@
+/* ==========================================================================
+   1. DESIGN TOKENS (Variables)
+   Changing these values updates your entire website's theme instantly.
+   ========================================================================== */
+:root {
+    --brand-primary: #0d6efd;       /* Core AWS-style corporate blue */
+    --brand-dark: #111827;          /* Rich, high-contrast dark slate */
+    --brand-light: #f8f9fa;         /* Crisp light grey for backgrounds */
+    --text-main: #2d3748;           /* Soft dark charcoal for highly readable paragraphs */
+    --text-muted: #6b7280;          /* Subtle grey for secondary text */
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --transition-smooth: all 0.25s ease-in-out;
+}
+
+/* ==========================================================================
+   2. GLOBAL BODY RESETS
+   Configures the base layout behavior of your web app.
+   ========================================================================== */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--text-main);
+    background-color: var(--brand-light);
+    
+    /* Sticky Footer Logic: Forces footer to bottom even on short pages */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   3. BRAND NAVIGATION CUSTOMIZATION
+   Fine-tuning the default Bootstrap navbar.
+   ========================================================================== */
+.navbar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navbar-brand {
+    letter-spacing: 0.5px;
+    font-size: 1.35rem;
+}
+
+/* Custom styling for the mobile hamburger button */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25) !important;
+}
+
+/* ==========================================================================
+   4. HERO / BANNER HARDENING
+   Fixes the hard-to-read text issues from raw Bootstrap defaults.
+   ========================================================================== */
+header.bg-dark {
+    background-color: var(--brand-dark) !important; /* Force our rich dark instead of Bootstrap black */
+}
+
+/* Makes your description paragraph jump out with crystal clear contrast */
+header .text-secondary {
+    color: #cbd5e1 !important; 
+    font-size: 1.15rem;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   5. PREMIUM COMPONENT MODIFICATIONS
+   Elevates basic cards into production-ready dashboard components.
+   ========================================================================== */
+.card {
+    box-shadow: var(--card-shadow);
+    border-radius: 12px !important; /* Smooth professional rounded edges */
+    transition: var(--transition-smooth);
+}
+
+/* Micro-interaction animation when hovering over core consulting pillars */
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08);
+}
+
+/* Ensure the titles inside your cards stand out cleanly */
+.card h3 {
+    color: var(--brand-dark);
+    font-size: 1.25rem;
+}
