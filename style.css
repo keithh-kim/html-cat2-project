@@ -2,16 +2,20 @@
    1. DESIGN TOKENS (Variables)
    Changing these values updates your entire website's theme instantly.
    ========================================================================== */
+
 :root {
-    --brand-primary: #244576;       /* Core AWS-style corporate blue */
-    --brand-dark: #111827;          /* Rich, high-contrast dark slate */
-    --brand-light: #f8f9fa;         /* Crisp light grey for backgrounds */
-    --text-main: #2d3748;           /* Soft dark charcoal for highly readable paragraphs */
-    --text-muted: #6b7280;          /* Subtle grey for secondary text */
-    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    /* "Stormy Morning" Hex Map */
+    --brand-primary: #88BDF2;       /* Vibrant Sky Blue - for active tabs, links, and main buttons */
+    --brand-accent: #BDDDFC;        /* Ultra-Light Mist - for subtle card borders, tags, or hover fills */
+    --brand-muted-blue: #6A89A7;    /* Steel Blue-Gray - for icons, subtitles, and decorative elements */
+    --brand-dark: #384959;          /* Deep Slate Shadow - for headers, footers, and navigation bars */
+    
+    /* Layout Tokens */
+    --brand-light: #fdfefe;         /* Off-white background for clean readability */
+    --text-main: #1f2937;           /* Sharp charcoal body text for perfect contrast */
+    --card-shadow: 0 4px 6px -1px rgba(56, 73, 89, 0.06), 0 2px 4px -1px rgba(56, 73, 89, 0.04);
     --transition-smooth: all 0.25s ease-in-out;
 }
-
 /* ==========================================================================
    2. GLOBAL BODY RESETS
    Configures the base layout behavior of your web app.
