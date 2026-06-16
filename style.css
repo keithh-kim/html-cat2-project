@@ -85,6 +85,14 @@ body {
     background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%) !important;
     padding: 6rem 0 !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    /* 2. THE NEGATIVE MARGIN MAGIC */
+  /* Pulls the entire banner box layout straight up to the very top screen edge */
+  margin-top: -72px; /* Matches the approximate vertical height of your navbar */
+  
+  /* 3. THE COMPENSATION PADDING */
+  /* Extra top padding pushes your title copy down so it isn't masked by the navbar links */
+  padding: calc(72px + 6rem) 0 6rem 0 !important; 
 }
 
 /* Masked Gradient Headline */
