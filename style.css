@@ -8,13 +8,42 @@
     --brand-primary: #88BDF2;       /* Vibrant Sky Blue - for active tabs, links, and main buttons */
     --brand-accent: #BDDDFC;        /* Ultra-Light Mist - for subtle card borders, tags, or hover fills */
     --brand-muted-blue: #6A89A7;    /* Steel Blue-Gray - for icons, subtitles, and decorative elements */
-    --brand-dark: #384959;          /* Deep Slate Shadow - for headers, footers, and navigation bars */
+    /* --brand-dark: #384959;          /* Deep Slate Shadow - for headers, footers, and navigation bars */
     
     /* Layout Tokens */
     --brand-light: #fdfefe;         /* Off-white background for clean readability */
     --text-main: #1f2937;           /* Sharp charcoal body text for perfect contrast */
     --card-shadow: 0 4px 6px -1px rgba(56, 73, 89, 0.06), 0 2px 4px -1px rgba(56, 73, 89, 0.04);
     --transition-smooth: all 0.25s ease-in-out;
+}
+/* Custom Hero Banner - Total Design Autonomy */
+.hero-banner {
+    /* Inject your custom background color here (e.g., a dark navy/slate mix) */
+    background: linear-gradient(135deg, #24303b 0%, #384959 100%) !important;
+    
+    /* Ensure explicit padding for mobile/desktop spacing balance */
+    padding: 6rem 0 !important;
+    
+    /* Subtle structural frame border at the bottom */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Keeps your text color clean and highly visible inside the custom banner */
+.hero-banner h1 {
+    font-size: 3.5rem !important;
+    background: linear-gradient(120deg, #ffffff 30%, var(--brand-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+    line-height: 1.15;
+}
+
+.hero-banner .text-secondary {
+    color: #cbd5e1 !important; 
+    font-size: 1.25rem;
+    font-weight: 300;
+    max-width: 700px;
+    margin: 1.5rem auto !important;
 }
 /* ==========================================================================
    2. GLOBAL BODY RESETS
