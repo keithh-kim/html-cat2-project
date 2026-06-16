@@ -3,7 +3,7 @@
    Changing these values updates your entire website's theme instantly.
    ========================================================================== */
 :root {
-    --brand-primary: #0d6efd;       /* Core AWS-style corporate blue */
+    --brand-primary: #244576;       /* Core AWS-style corporate blue */
     --brand-dark: #111827;          /* Rich, high-contrast dark slate */
     --brand-light: #f8f9fa;         /* Crisp light grey for backgrounds */
     --text-main: #2d3748;           /* Soft dark charcoal for highly readable paragraphs */
