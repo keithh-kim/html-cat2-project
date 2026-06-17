@@ -29,53 +29,68 @@ body {
 }
 
 /* ==========================================================================
-   3. MODERN TRANSPARENT NAVBAR (Consolidated & Repaired)
+   3. MODERN TRANSPARENT NAVBAR (Clean Responsive Grid Layout)
    ========================================================================== */
 .navbar {
-    /* Safe fallback: Semi-transparent deep dark tint instead of pure invisible layout */
-    background-color: rgba(15, 23, 42, 0.85) !important; 
-    
-    /* Subtle framing border */
+    background: rgba(11, 19, 43, 0.75) !important; /* Rich opaque midnight tint matching your logo */
     border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-    padding: 1rem 0;
-    
-    /* Glassmorphism hardware acceleration */
     backdrop-filter: blur(12px) !important; 
     -webkit-backdrop-filter: blur(12px) !important; 
-    
-    /* Pulls the navbar up to ensure it sits completely flush against the hero gradient */
     margin-bottom: 0 !important;
+    padding: 0.75rem 0 !important; /* Clean vertical spacing padding */
 }
 
-/* Ensure the brand name stands out in crisp white */
+/* Perfect alignment wrapper inside the navbar row */
+.navbar > .container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important; /* Absolutely prevents items from dropping to a new line */
+}
+
+/* Control your brand image footprint cleanly */
 .navbar-brand {
-    font-size: 1.35rem;
-    letter-spacing: 0.5px;
-    color: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+    margin-right: 1.5rem !important;
 }
 
-/* Custom Nav Links Layout and Token Integration */
+/* Overhanging Logo Layout Override */
+.navbar-brand img {
+    height: 42px !important;    /* Sleek vertical constraint */
+    width: auto !important;     /* Dynamically scales width without distortion */
+    object-fit: contain;
+}
+
+/* Push the desktop nav links further right to give the big logo breathing room */
+#desktopNavbarLinks {
+    margin-left: 240px !important; 
+}
+
+/* Adjust text links layout engine structure */
+.navbar .navbar-nav {
+    display: flex !important;
+    flex-direction: row !important; /* Forces links to stay horizontally aligned */
+    align-items: center !important;
+    gap: 0.25rem !important; /* Clean modern padding gap between options */
+}
+
 .navbar .nav-link {
-    color: var(--brand-accent) !important; /* Soft ice-mist blue link color */
+    color: var(--brand-accent) !important; 
     font-weight: 500;
-    font-size: 0.95rem;
-    letter-spacing: 0.3px;
-    padding: 0.5rem 1rem !important;
+    font-size: 0.9rem !important; /* Slightly smaller font size so all 8 items fit comfortably */
+    letter-spacing: 0.2px;
+    padding: 0.5rem 0.75rem !important; /* Balanced link padding footprint */
     transition: var(--transition-smooth);
+    white-space: nowrap !important; /* Guarantees words like 'Cost Estimator' never snap into two rows */
 }
 
-/* Hover text glow */
 .navbar .nav-link:hover,
 .navbar .nav-link.active {
     color: #ffffff !important; 
-    text-shadow: 0 0 10px rgba(136, 189, 242, 0.4); 
+    text-shadow: 0 0 10px rgba(0, 136, 255, 0.4); 
 }
-
-/* Mobile Toggle Hamburger Icon Settings */
-.navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.2) !important;
-}
-
 /* ==========================================================================
    4. CUSTOM HERO BANNER 
    ========================================================================== */
