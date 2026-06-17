@@ -3,7 +3,7 @@
    ========================================================================== */
 :root {
     /* Exact Logo Color Extractions */
-    --brand-primary: #0088FF;       /* Bright Sky Blue from top of the cloud */
+    --brand-primary: #FFFFFF;       /* Bright Sky Blue from top of the cloud */
     --brand-accent: #00ffe2;        /* Neon Lime Green from the arrow */
     --brand-teal: #00E5FF;          /* Electric Teal from the bottom right of the cloud */
     --brand-dark: #0B132B;          /* Premium Midnight Blue from your logo background */
@@ -36,7 +36,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand, .brand-text {
    3. MODERN TRANSPARENT NAVBAR (Clean Responsive Grid Layout)
    ========================================================================== */
 .navbar {
-    background: rgba(11, 19, 43, 0.75) !important; /* Rich opaque midnight tint matching your logo */
+    background: rgba(13, 21, 50, 0.68) !important; /* Rich opaque midnight tint matching your logo */
     border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     backdrop-filter: blur(12px) !important; 
     -webkit-backdrop-filter: blur(12px) !important; 
@@ -120,50 +120,65 @@ h1, h2, h3, h4, h5, h6, .navbar-brand, .brand-text {
     line-height: 1.6;
 }
 /* ==========================================================================
-   HERO CALL-TO-ACTION ELEMENTS (Logo Green Alignment)
+   HERO AESTHETIC POLISH (Safe Bootstrap-Variable Alignment)
    ========================================================================== */
 
-/* 1. The "Next-Gen Architecture" pill badge */
-.hero-banner .badge.bg-primary {
-    /* Transparent container tint using a low-alpha green glow */
-    background-color: rgba(136, 238, 51, 0.12) !important; 
-    color: var(--brand-accent) !important; /* Forces your neon green token */
-    border: 1px solid rgba(136, 238, 51, 0.35) !important;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+/* 1. Target elements specifically inside the hero section to protect global styles */
+.hero-banner .btn, 
+.hero-banner .badge { 
+    /* Overriding Bootstrap variables naturally changes the component look safely */
+    --bs-btn-border-radius: 4px;
+    --bs-badge-border-radius: 4px;
+    border-radius: 4px;
 }
 
-/* 2. The "Get a Free Audit" Solid Button */
-.hero-banner .btn-primary {
-    background-color: var(--brand-accent) !important;
-    border-color: var(--brand-accent) !important;
-    color: #0B132B !important; /* Deep midnight blue text from logo for perfect readability */
-    font-weight: 600;
-    border-radius: 8px;
-    transition: var(--transition-smooth);
+/* 2. Style the "Next-Gen Architecture" pill badge natively */
+.hero-banner .badge {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.6em 1em; /* Bootstrap uses 'em' padding tracking inside buttons and badges */
 }
 
-/* When hovering over the main green button, let it change smoothly */
-.hero-banner .btn-primary:hover {
-    background-color: #a6f55c !important; /* Slightly brighter lime flare */
-    border-color: #a6f55c !important;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(136, 238, 51, 0.3); /* Neon green drop glow */
-}
-
-/* 3. The "Estimate Costs" Outline Button */
+/* 3. Elevate the Outline Button using its native Bootstrap structure */
 .hero-banner .btn-outline-light {
-    border-radius: 8px;
-    font-weight: 500;
-    transition: var(--transition-smooth);
+    border-width: 1.5px;
+    background-color: rgba(255, 255, 255, 0.03);
+    transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Give the outline button a green accent hover pop too */
 .hero-banner .btn-outline-light:hover {
-    background-color: transparent !important;
-    border-color: var(--brand-accent) !important;
-    color: var(--brand-accent) !important;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #0b132b; /* Contrast dark midnight blue shade text */
     transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Ensure smooth tracking animations for the primary button layout as well */
+.hero-banner .btn-primary {
+    transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.hero-banner .btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+/* 4. Increase heading negative space natively */
+.hero-banner h1 {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.25;
+}
+
+/* 5. Constrain paragraph text width using Bootstrap layout spacing controls */
+.hero-banner .text-secondary.lead {
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    max-width: 620px;
+    /* Uses automatic margin distribution to stay perfectly centered within Bootstrap container rows */
+    margin-left: auto;  
+    margin-right: auto; 
 }
 
 /* ==========================================================================
