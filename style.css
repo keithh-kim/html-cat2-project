@@ -2,19 +2,18 @@
    1. DESIGN TOKENS (Variables)
    ========================================================================== */
 :root {
-    /* "Stormy Morning" Core Palette Matrix */
-    --brand-primary: #88BDF2;       /* Vibrant Sky Blue - active tabs, main buttons */
-    --brand-accent: #BDDDFC;        /* Ultra-Light Mist - borders, text gradients, tags */
-    --brand-muted-blue: #6A89A7;    /* Steel Blue-Gray - icons, secondary typography */
-    --brand-dark: #1e293b;          /* Dark Slate Anchor - matching your hero base gradient */
+    /* Exact Logo Color Extractions */
+    --brand-primary: #0088FF;       /* Bright Sky Blue from top of the cloud */
+    --brand-accent: #00ffe2;        /* Neon Lime Green from the arrow */
+    --brand-teal: #00E5FF;          /* Electric Teal from the bottom right of the cloud */
+    --brand-dark: #0B132B;          /* Premium Midnight Blue from your logo background */
     
-    /* Layout Tokens */
-    --brand-light: #fdfefe;         /* Off-white background for main page areas */
-    --text-main: #1f2937;           /* Deep charcoal text for optimal readability */
-    --card-shadow: 0 4px 6px -1px rgba(56, 73, 89, 0.06), 0 2px 4px -1px rgba(56, 73, 89, 0.04);
-    --transition-smooth: all 0.25s ease-in-out;
+    /* UI Neutrals */
+    --brand-light: #f8fafc;         
+    --text-main: #0f172a;           
+    --card-shadow: 0 10px 30px -15px rgba(11, 19, 43, 0.1);
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 /* ==========================================================================
    2. GLOBAL BODY RESETS
    ========================================================================== */
@@ -81,30 +80,21 @@ body {
    4. CUSTOM HERO BANNER 
    ========================================================================== */
 .hero-banner {
-    /* Rich Deep Midnight Blue to Slate Gradient */
-    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%) !important;
-    padding: 6rem 0 !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-
-    /* 2. THE NEGATIVE MARGIN MAGIC */
-  /* Pulls the entire banner box layout straight up to the very top screen edge */
-  margin-top: -72px; /* Matches the approximate vertical height of your navbar */
-  
-  /* 3. THE COMPENSATION PADDING */
-  /* Extra top padding pushes your title copy down so it isn't masked by the navbar links */
-  padding: calc(72px + 6rem) 0 6rem 0 !important; 
+    /* Flows from the logo's deep midnight into a slightly lighter slate dark */
+    /*background: linear-gradient(180deg, #0B132B 0%, #111E38 100%) !important;*/
+    background: #0d1532 !important;
+    margin-top: -72px; 
+    padding: calc(72px + 6rem) 0 6rem 0 !important;  
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Masked Gradient Headline */
+/* Make your headline text gradient use the new electric teal */
 .hero-banner h1 {
     font-size: 3.5rem !important;
-    background: linear-gradient(120deg, #ffffff 30%, var(--brand-accent) 100%);
+    background: linear-gradient(120deg, #ffffff 40%, var(--brand-teal) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    letter-spacing: -1px;
-    line-height: 1.15;
 }
-
 /* Highly readable description layout */
 .hero-banner .text-secondary {
     color: #cbd5e1 !important; 
@@ -114,12 +104,61 @@ body {
     margin: 1.5rem auto !important;
     line-height: 1.6;
 }
+/* ==========================================================================
+   HERO CALL-TO-ACTION ELEMENTS (Logo Green Alignment)
+   ========================================================================== */
+
+/* 1. The "Next-Gen Architecture" pill badge */
+.hero-banner .badge.bg-primary {
+    /* Transparent container tint using a low-alpha green glow */
+    background-color: rgba(136, 238, 51, 0.12) !important; 
+    color: var(--brand-accent) !important; /* Forces your neon green token */
+    border: 1px solid rgba(136, 238, 51, 0.35) !important;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* 2. The "Get a Free Audit" Solid Button */
+.hero-banner .btn-primary {
+    background-color: var(--brand-accent) !important;
+    border-color: var(--brand-accent) !important;
+    color: #0B132B !important; /* Deep midnight blue text from logo for perfect readability */
+    font-weight: 600;
+    border-radius: 8px;
+    transition: var(--transition-smooth);
+}
+
+/* When hovering over the main green button, let it change smoothly */
+.hero-banner .btn-primary:hover {
+    background-color: #a6f55c !important; /* Slightly brighter lime flare */
+    border-color: #a6f55c !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(136, 238, 51, 0.3); /* Neon green drop glow */
+}
+
+/* 3. The "Estimate Costs" Outline Button */
+.hero-banner .btn-outline-light {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+}
+
+/* Give the outline button a green accent hover pop too */
+.hero-banner .btn-outline-light:hover {
+    background-color: transparent !important;
+    border-color: var(--brand-accent) !important;
+    color: var(--brand-accent) !important;
+    transform: translateY(-2px);
+}
 
 /* ==========================================================================
    5. PREMIUM CARD INTERACTIONS
    ========================================================================== */
 .card {
     box-shadow: var(--card-shadow);
+    background-color: #ffffff !important;
+    /* Clean, soft border using your muted blue-gray so it isn't harsh */
+    border: 1px solid rgba(106, 137, 167, 0.12) !important; 
     border-radius: 12px !important; 
     transition: var(--transition-smooth);
 }
@@ -127,10 +166,18 @@ body {
 /* Smooth micro-interaction physical hover drift */
 .card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 20px -3px rgba(56, 73, 89, 0.12);
+    /* Soft shadow using your brand-dark token */
+    box-shadow: 0 12px 20px -3px rgba(11, 19, 43, 0.12);
+    
+    /* SWITCHES BORDER FROM BLUE TO GREEN ON HOVER: */
+    border-color: var(--brand-accent) !important; 
 }
 
-/* Using our updated variable anchor so titles look intentional */
+/* If you have any text icons inside the cards that you want green by default: */
+.card .text-primary {
+    color: var(--brand-accent) !important;
+}
+
 .card h3 {
     color: var(--brand-dark);
     font-size: 1.25rem;
