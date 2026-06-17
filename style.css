@@ -15,17 +15,21 @@
     --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* ==========================================================================
-   2. GLOBAL BODY RESETS
+   2. GLOBAL BODY RESETS & TYPOGRAPHY MATRIX
    ========================================================================== */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
     color: var(--text-main);
     background-color: var(--brand-light);
-    
-    /* Sticky Footer Logic: Keeps footer locked to screen bottom */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+/* Force headings and branding text to use Poppins with crisp tech tracking */
+h1, h2, h3, h4, h5, h6, .navbar-brand, .brand-text {
+    font-family: 'Poppins', -apple-system, sans-serif;
+    letter-spacing: -0.01em; /* Poppins tracks beautifully with a very slight negative letter-spacing */
 }
 
 /* ==========================================================================
@@ -56,40 +60,36 @@ body {
     margin-right: 1.5rem !important;
 }
 
-/* Overhanging Logo Layout Override */
+/* ==========================================================================
+   HYBRID BRAND LOGO & TEXT TYPOGRAPHY
+   ========================================================================== */
+
+/* 1. Ensure the icon stays slim and doesn't stretch the header */
 .navbar-brand img {
-    height: 42px !important;    /* Sleek vertical constraint */
-    width: auto !important;     /* Dynamically scales width without distortion */
+    height: 36px !important;    /* Clean, professional desktop height */
+    width: auto !important;
     object-fit: contain;
 }
 
-/* Push the desktop nav links further right to give the big logo breathing room */
-#desktopNavbarLinks {
-    margin-left: 240px !important; 
+/* 2. Style the "Strath" text base */
+.navbar-brand .brand-text {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: -0.03em;    /* Tight modern kerning */
+    color: #ffffff;             /* Crisp clean white */
+    display: inline-block;
+    line-height: 1;
 }
 
-/* Adjust text links layout engine structure */
-.navbar .navbar-nav {
-    display: flex !important;
-    flex-direction: row !important; /* Forces links to stay horizontally aligned */
-    align-items: center !important;
-    gap: 0.25rem !important; /* Clean modern padding gap between options */
+/* 3. Style the "Cloud" accent text using your logo's sky blue token */
+.navbar-brand .brand-accent {
+    color: var(--brand-primary) !important; /* Matches the bright blue #0088FF from your cloud */
 }
 
-.navbar .nav-link {
-    color: var(--brand-accent) !important; 
-    font-weight: 500;
-    font-size: 0.9rem !important; /* Slightly smaller font size so all 8 items fit comfortably */
-    letter-spacing: 0.2px;
-    padding: 0.5rem 0.75rem !important; /* Balanced link padding footprint */
-    transition: var(--transition-smooth);
-    white-space: nowrap !important; /* Guarantees words like 'Cost Estimator' never snap into two rows */
-}
-
-.navbar .nav-link:hover,
-.navbar .nav-link.active {
-    color: #ffffff !important; 
-    text-shadow: 0 0 10px rgba(0, 136, 255, 0.4); 
+/* 4. Subtle hover interaction for the entire logo group */
+.navbar-brand:hover .brand-text {
+    text-shadow: 0 0 15px rgba(0, 136, 255, 0.3);
 }
 /* ==========================================================================
    4. CUSTOM HERO BANNER 
