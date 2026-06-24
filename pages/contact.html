@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
+    
 </head>
 <body class="bg-dark text-white">
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
@@ -35,6 +36,38 @@
         <h1 class="display-4 fw-bold mb-3">Initiate an Audit</h1>
         <p class="text-secondary lead mx-auto" style="max-width: 600px;">Connect directly with infrastructure engineers to overhaul system lifecycles.</p>
     </header>
+    <main class="container my-5 py-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card bg-secondary bg-opacity-10 border-light border-opacity-10 p-4 shadow">
+                    
+                    <form class="needs-validation" id="contactForm" novalidate>
+                        <div class="mb-3">
+                            <label for="userName" class="form-label small fw-bold text-secondary text-uppercase tracking-wider">Full Name</label>
+                            <input type="text" class="form-control bg-dark text-white border-secondary border-opacity-20" id="userName" required minlength="3">
+                            <div class="invalid-feedback small text-danger">Please enter your name (minimum 3 characters).</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="userEmail" class="form-label small fw-bold text-secondary text-uppercase tracking-wider">Email Address</label>
+                            <input type="email" class="form-control bg-dark text-white border-secondary border-opacity-20" id="userEmail" required>
+                            <div class="invalid-feedback small text-danger">Please provide a valid corporate email address.</div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="userMessage" class="form-label small fw-bold text-secondary text-uppercase tracking-wider">Project Brief</label>
+                            <textarea class="form-control bg-dark text-white border-secondary border-opacity-20" id="userMessage" rows="4" required minlength="15"></textarea>
+                            <div class="invalid-feedback small text-danger">Please enter a project brief description (at least 15 characters).</div>
+                        </div>
+
+                        <button class="btn btn-primary w-100" type="submit">Submit Architecture Request</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <script src="../script.js"></script>
+    </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
