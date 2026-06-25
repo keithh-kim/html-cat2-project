@@ -1,231 +1,319 @@
-/* ========================================================================== 
-   1. DESIGN TOKENS (Variables) 
-   ========================================================================== */ 
-:root { 
-  /* Exact Logo Color Extractions */ 
-  --brand-primary: #FFFFFF; /* Note: Change this hex value if you want a Sky Blue brand anchor instead of White */
-  --brand-accent: #00ffe2;  /* Neon Lime Green from the arrow */ 
-  --brand-teal: #00E5FF;    /* Electric Teal from the bottom right of the cloud */ 
-  --brand-dark: #0B132B;    /* Premium Midnight Blue from your logo background */ 
+/* ==========================================================================
+   1. DESIGN TOKENS (Satoshi / Inter Obsidian System)
+   ========================================================================== */
+:root {
+  /* Premium Dark Theme Color Palette Tokens */
+  --bg-obsidian: #080B11;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --border-premium: rgba(255, 255, 255, 0.06);
   
-  /* UI Neutrals */ 
-  --brand-light: #f8fafc; 
-  --text-main: #0f172a; 
-  --card-shadow: 0 10px 30px -15px rgba(11, 19, 43, 0.1); 
-  --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); 
-} 
-
-/* ========================================================================== 
-   2. GLOBAL BODY RESETS & TYPOGRAPHY MATRIX 
-   ========================================================================== */ 
-body { 
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif; 
-  color: var(--text-main); 
-  background-color: var(--brand-light); 
-  display: flex; 
-  flex-direction: column; 
-  min-height: 100vh; 
-} 
-
-/* Force headings and branding text to use Poppins with crisp tech tracking */ 
-h1, h2, h3, h4, h5, h6, .navbar-brand, .brand-text { 
-  font-family: 'Poppins', -apple-system, sans-serif; 
-  letter-spacing: -0.01em; 
-} 
-
-/* ========================================================================== 
-   3. MODERN TRANSPARENT NAVBAR (Clean Responsive Grid Layout) 
-   ========================================================================== */ 
-.navbar { 
-  background: rgba(7, 11, 28, 0.9) !important; 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important; 
-  backdrop-filter: blur(12px) !important; 
-  -webkit-backdrop-filter: blur(12px) !important; 
-  margin-bottom: 0 !important; 
-  padding: 0.75rem 0 !important; 
+  /* Brand Accent Extractions */
+  --accent-glow: #00D2FF;     /* Electric Sky Blue */
+  --accent-lime: #00ffe2;     /* Bright Neon Aqua */
+  --accent-purple: #7928CA;   /* Deep Matrix Purple */
   
-  /* DEBUG 1 FIXED: Added explicit relative positioning and z-index stack layer anchor */
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
+  /* UI Neutrals & Typography Colors */
+  --text-main: #F1F5F9;       /* Crisp off-white */
+  --text-muted: #94A3B8;      /* Clean slate gray */
+  
+  /* Smooth Motion Timing Curves */
+  --transition-premium: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-  /* Keeps it securely on top of the hero text and cards when scrolling */
-  z-index: 1030; 
-} 
+/* ==========================================================================
+   2. GLOBAL BODY RESETS & TYPOGRAPHY SYSTEM
+   ========================================================================== */
+body {  
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;  
+  color: var(--text-main);  
+  background-color: var(--bg-obsidian);  
+  display: flex;  
+  flex-direction: column;  
+  min-height: 100vh;  
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
 
-/* Perfect alignment wrapper inside the navbar row */ 
-.navbar > .container { 
-  display: flex !important; 
-  align-items: center !important; 
-  justify-content: space-between !important; 
-  flex-wrap: nowrap !important; 
-} 
+/* Force headings to use the high-end geometric typography system */
+h1, h2, h3, h4, h5, h6, .navbar-brand, .brand-text {  
+  font-family: 'Satoshi', -apple-system, sans-serif;  
+  letter-spacing: -0.01em;  
+}
 
-/* Control your brand image footprint cleanly */ 
-.navbar-brand { 
-  display: flex !important; 
-  align-items: center !important; 
-  padding: 0 !important; 
-  margin-right: 1.5rem !important; 
-} 
+/* ==========================================================================
+   3. MODERN TRANSPARENT NAVBAR (Awwwards-Inspired Glassmorphism)
+   ========================================================================== */
+.navbar {  
+  background: rgba(8, 11, 17, 0.6) !important;  
+  border-bottom: 1px solid var(--border-premium) !important;  
+  backdrop-filter: blur(16px) !important;  
+  -webkit-backdrop-filter: blur(16px) !important;  
+  margin-bottom: 0 !important;  
+  padding: 1.25rem 0 !important;  
+   
+  position: fixed !important;  
+  top: 0 !important;  
+  left: 0 !important;  
+  width: 100% !important;  
+  z-index: 1030;  
+  transition: var(--transition-premium);
+}
 
-/* ========================================================================== 
-   HYBRID BRAND LOGO & TEXT TYPOGRAPHY 
-   ========================================================================== */ 
-.navbar-brand img { 
-  height: 36px !important; 
-  width: auto !important; 
-  object-fit: contain; 
-} 
+.navbar > .container {  
+  display: flex !important;  
+  align-items: center !important;  
+  justify-content: space-between !important;  
+  flex-wrap: nowrap !important;  
+}
 
-.navbar-brand .brand-text { 
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif; 
-  font-weight: 700; 
-  font-size: 1.4rem; 
-  letter-spacing: -0.03em; 
-  color: #ffffff; 
-  display: inline-block; 
-  line-height: 1; 
-} 
+.navbar-brand {  
+  display: flex !important;  
+  align-items: center !important;  
+  padding: 0 !important;  
+  margin-right: 1.5rem !important;  
+}
 
-.navbar-brand .brand-accent { 
-  color: var(--brand-primary) !important; 
-} 
+.navbar-brand img {  
+  height: 32px !important;  
+  width: auto !important;  
+  object-fit: contain;  
+}
 
-.navbar-brand:hover .brand-text { 
-  text-shadow: 0 0 15px rgba(0, 136, 255, 0.3); 
-} 
+.navbar-brand .brand-text {  
+  font-weight: 700;  
+  font-size: 1.25rem;  
+  letter-spacing: -0.02em;  
+  color: #ffffff;  
+  display: inline-block;  
+  line-height: 1;  
+}
 
-/* DEBUG 2 FIXED: Strengthened selector specificity for desktop navigation links */
-.navbar .navbar-nav .nav-link { 
-  color: rgba(255, 255, 255, 0.7) !important; 
-} 
+.navbar-brand .brand-accent {  
+  color: var(--accent-glow) !important;  
+}
 
-.navbar .navbar-nav .nav-link:hover,
-.navbar .navbar-nav .nav-link.active { 
-  color: #00ffe2 !important; 
-} 
+.navbar-brand:hover .brand-text {  
+  text-shadow: 0 0 15px rgba(0, 210, 255, 0.3);  
+}
 
-/* ========================================================================== 
-   4. CUSTOM HERO BANNER 
-   ========================================================================== */ 
-.hero-banner { 
-  background: #0d1532 !important; 
-  margin-top: -72px; 
-  padding: calc(72px + 6rem) 0 6rem 0 !important; 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
-} 
+.navbar .navbar-nav .nav-link {  
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted) !important;  
+  padding: 0.5rem 1rem !important;  
+  transition: var(--transition-premium);
+}
 
-.hero-banner h1 { 
-  font-size: 3.5rem !important; 
-  background: linear-gradient(120deg, #ffffff 40%, var(--brand-teal) 100%); 
-  -webkit-background-clip: text; 
-  -webkit-text-fill-color: transparent; 
-} 
+.navbar .navbar-nav .nav-link:hover,  
+.navbar .navbar-nav .nav-link.active {  
+  color: #ffffff !important;  
+}
 
-.hero-banner .text-secondary { 
-  color: #cbd5e1 !important; 
-  font-size: 1.25rem; 
-  font-weight: 300; 
-  max-width: 700px; 
-  margin: 1.5rem auto !important; 
-  line-height: 1.6; 
-} 
+/* ==========================================================================
+   4. PREMIUM EXPERIMENTAL MESH BACKDROP OVERLAYS
+   ========================================================================== */
+.grid-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 1;
+}
 
-/* ========================================================================== 
-   HERO AESTHETIC POLISH (Safe Bootstrap-Variable Alignment) 
-   ========================================================================== */ 
-.hero-banner .btn, .hero-banner .badge { 
-  --bs-btn-border-radius: 4px; 
-  --bs-badge-border-radius: 4px; 
-  border-radius: 4px; 
-} 
+.mesh-blob-1 {
+  position: absolute;
+  top: 10%; right: -10%; width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.22) 0%, rgba(121, 40, 202, 0.12) 50%, transparent 100%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  animation: pulseMesh 12s infinite alternate;
+}
 
-.hero-banner .badge { 
-  text-transform: uppercase; 
-  letter-spacing: 0.15em; 
-  font-size: 0.72rem; 
-  font-weight: 700; 
-  padding: 0.6em 1em; 
-} 
+.mesh-blob-2 {
+  position: absolute;
+  bottom: -5%; left: -5%; width: 450px; height: 450px;
+  background: radial-gradient(circle, rgba(255, 0, 128, 0.08) 0%, transparent 80%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
 
-.hero-banner .btn-outline-light { 
-  border-width: 1.5px; 
-  background-color: rgba(255, 255, 255, 0.03); 
-  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; 
-} 
+@keyframes pulseMesh {
+  0% { transform: scale(1) translate(0px, 0px); }
+  100% { transform: scale(1.1) translate(30px, -15px); }
+}
 
-.hero-banner .btn-outline-light:hover { 
-  background-color: #ffffff; 
-  border-color: #ffffff; 
-  color: #0b132b; 
-  transform: translateY(-2px); 
-  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1); 
-} 
+/* ==========================================================================
+   5. PREMIUM HERO BANNER OVERHAUL (Asymmetrical Screen Engine)
+   ========================================================================== */
+.hero-viewport-wrapper {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+}
 
-.hero-banner .btn-primary { 
-  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; 
-} 
+.hero-content-block {
+  position: relative;
+  z-index: 10;
+}
 
-.hero-banner .btn-primary:hover { 
-  transform: translateY(-2px); 
-} 
+/* Micro-capsule badge with live pulse indicator layout */
+.micro-capsule-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-premium);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent-glow);
+  margin-bottom: 2rem;
+}
 
-.hero-banner h1 { 
-  margin-top: 1.5rem; 
-  margin-bottom: 2rem; 
-  line-height: 1.25; 
-} 
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-glow);
+  border-radius: 50%;
+  margin-right: 10px;
+  box-shadow: 0 0 10px var(--accent-glow);
+  animation: livePulse 2s infinite;
+}
 
-.hero-banner .text-secondary.lead { 
-  line-height: 1.8; 
-  margin-bottom: 3rem; 
-  max-width: 620px; 
-  margin-left: auto; 
-  margin-right: auto; 
-} 
+@keyframes livePulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(0, 210, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
+}
 
-/* ========================================================================== 
-   5. PREMIUM CARD INTERACTIONS 
-   ========================================================================== */ 
-.card { 
-  box-shadow: var(--card-shadow); 
-  background-color: #ffffff !important; 
-  border: 1px solid rgba(106, 137, 167, 0.12) !important; 
-  border-radius: 12px !important; 
-  transition: var(--transition-smooth); 
-} 
+.hero-title-headline {
+  font-family: var(--font-display);
+  font-size: calc(2.25rem + 3.5vw);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
 
-.card:hover { 
-  transform: translateY(-6px); 
-  box-shadow: 0 12px 20px -3px rgba(11, 19, 43, 0.12); 
-  border-color: var(--brand-accent) !important; 
-} 
+.gradient-text-mask {
+  background: linear-gradient(135deg, #ffffff 30%, var(--accent-glow) 70%, var(--accent-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-.card .text-primary { 
-  color: var(--brand-accent) !important; 
-} 
+.hero-subtext-description {
+  font-size: 1.15rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--text-muted);
+  max-width: 580px;
+  margin-bottom: 2.5rem;
+}
 
-.card h3 { 
-  color: var(--brand-dark); 
-  font-size: 1.25rem; 
-} 
+/* ==========================================================================
+   6. PREMIUM SLEEK BUTTON INTERACTION SYSTEM
+   ========================================================================== */
+.btn-premium-solid {
+  background: #ffffff;
+  color: var(--bg-obsidian);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.85rem 2rem;
+  border-radius: 6px;
+  border: 1px solid #ffffff;
+  transition: var(--transition-premium);
+}
 
-/* ========================================================================== 
-   6. RESPONSIVE MEDIA QUERIES (Offcanvas Sidebar Hardening) 
-   ========================================================================== */ 
-@media (max-width: 991.98px) { 
-  /* DEBUG 3 FIXED: Removed the destructive visibility overrides that broke Bootstrap's transitions */
-  .offcanvas.text-bg-dark { 
-    background-color: #111a36 !important; /* Tinted to your deep brand tone */
-    backdrop-filter: none !important; 
-    -webkit-backdrop-filter: none !important; 
-  } 
-  .offcanvas-body .navbar-nav { 
-    display: flex !important; 
-    flex-direction: column !important; 
-    gap: 0.5rem !important; 
-    padding-top: 1rem !important; 
-  } 
+.btn-premium-solid:hover {
+  background: transparent;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 210, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-premium-outline {
+  background: rgba(255, 255, 255, 0.02);
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.85rem 2rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: var(--transition-premium);
+}
+
+.btn-premium-outline:hover {
+  background: #ffffff;
+  color: var(--bg-obsidian);
+  transform: translateY(-3px);
+  border-color: #ffffff;
+}
+
+/* ==========================================================================
+   7. SUBPAGE COMPONENTS & CARD ARCHITECTURE (Universal Safety Sync)
+   ========================================================================== */
+.card {  
+  background-color: var(--bg-card) !important;  
+  border: 1px solid var(--border-premium) !important;  
+  border-radius: 6px !important;  
+  transition: var(--transition-premium);  
+}
+
+.card:hover {  
+  transform: translateY(-5px);  
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(0, 210, 255, 0.25) !important;  
+}
+
+.card h3 {  
+  color: #ffffff;  
+  font-size: 1.25rem;  
+}
+
+.card .text-secondary {
+  color: var(--text-muted) !important;
+}
+
+/* Form Input Enhancements (Calculator / Contact Validation Syncs) */
+.form-control, .form-select {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid var(--border-premium) !important;
+  color: #ffffff !important;
+  border-radius: 6px;
+  transition: var(--transition-premium);
+}
+
+.form-control:focus, .form-select:focus {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: var(--accent-glow) !important;
+  box-shadow: 0 0 0 4px rgba(0, 210, 255, 0.15) !important;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE MEDIA QUERIES (Offcanvas Sidebar Hardening)
+   ========================================================================== */
+@media (max-width: 991.98px) {  
+  .offcanvas.text-bg-dark {  
+    background-color: #0b0f17 !important;
+    backdrop-filter: none !important;  
+    -webkit-backdrop-filter: none !important;  
+  }  
+  .offcanvas-body .navbar-nav {  
+    display: flex !important;  
+    flex-direction: column !important;  
+    gap: 0.5rem !important;  
+    padding-top: 1rem !important;  
+  }  
 }
