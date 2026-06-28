@@ -23,21 +23,26 @@
 /* ==========================================================================
    2. GLOBAL BODY RESETS & TYPOGRAPHY SYSTEM
    ========================================================================== */
-body {  
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;  
-  color: var(--text-main);  
-  background-color: var(--bg-obsidian);  
-  display: flex;  
-  flex-direction: column;  
-  min-height: 100vh;  
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
+/* ==========================================================================
+   GLOBAL BODY RESETS & TYPOGRAPHY SYSTEM
+   ========================================================================== */
+body {    
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;    
+  font-weight: 400;             /* Standard, crisp readable weight */
+  line-height: 1.75;            /* Gives paragraphs comfortable vertical breathing room */
+  color: var(--text-main);    
+  background-color: var(--bg-obsidian);    
+  display: flex;    
+  flex-direction: column;    
+  min-height: 100vh;    
+  overflow-x: hidden;  
+  -webkit-font-smoothing: antialiased; /* Thins out text pixels to keep them ultra-sharp */
 }
 
-/* Force headings to use the high-end geometric typography system */
-h1, h2, h3, h4, h5, h6, .navbar-brand, .brand-text {  
-  font-family: 'Satoshi', -apple-system, sans-serif;  
-  letter-spacing: -0.01em;  
+/* Target small description texts specifically if you want them sleeker */
+p, .text-secondary, .card p {
+  font-weight: 300;             /* Light weight for an elegant, modern contrast */
+  letter-spacing: -0.01em;      /* Extremely subtle tightening for subtext */
 }
 
 /* ==========================================================================
@@ -335,4 +340,21 @@ h1, h2, h3, h4, h5, h6, .navbar-brand, .brand-text {
   background: radial-gradient(800px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(0, 210, 255, 0.08), transparent 40%);
   z-index: 3;
   pointer-events: none;
+}
+
+/* ==========================================================================
+   FOOTER CONTRAST HARDENING
+   ========================================================================== */
+footer, 
+footer p, 
+footer .text-muted, 
+footer .text-secondary {
+  color: #94A3B8 !important;   /* Forces text to your crisp Slate Gray token */
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+footer h5, 
+footer .text-white {
+  color: #FFFFFF !important;   /* Ensures corporate titles pop cleanly */
 }
