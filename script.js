@@ -66,3 +66,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+// ==========================================================================
+// 3. HARDWARE-ACCELERATED MOUSE-TRACKING SPOTLIGHT CAPABILITIES ENGINE (Commit 49)
+// ==========================================================================
+document.querySelectorAll('.card').forEach(card => {
+    // Dynamically insert the glare mask layer element
+    card.classList.add('spotlight-card');
+    const glareLayer = document.createElement('div');
+    glareLayer.classList.add('card-spotlight-glare');
+    card.appendChild(glareLayer);
+
+    card.addEventListener('mousemove', (e) => {
+        const boundingBox = card.getBoundingClientRect();
+        const xPosition = e.clientX - boundingBox.left;
+        const yPosition = e.clientY - boundingBox.top;
+
+        // Map absolute coordinate points to CSS layout tokens
+        card.style.setProperty('--mouse-x', `${xPosition}px`);
+        card.style.setProperty('--mouse-y', `${yPosition}px`);
+
+        // Compute subtle fluid 3D skew coordinates
+        const xRotation = ((yPosition - boundingBox.height / 2) / (boundingBox.height / 2)) * -4;
+        const yRotation = ((xPosition - boundingBox.width / 2) / (boundingBox.width / 2)) * 4;
+        card.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) translateY(-5px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0deg)';
+    });
+});
