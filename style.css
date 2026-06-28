@@ -358,3 +358,35 @@ footer h5,
 footer .text-white {
   color: #FFFFFF !important;   /* Ensures corporate titles pop cleanly */
 }
+
+/* ==========================================================================
+   10. GLOBAL TYPOGRAPHY ENFORCEMENT MATRIX
+   ========================================================================== */
+
+/* Force ALL section headings across all pages to use heavy Satoshi */
+h1, h2, h3, h4, h5, h6, 
+.display-1, .display-2, .display-3, .display-4, .display-5,
+.card-title, .offcanvas-title {
+    font-family: var(--font-display) !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.03em !important;
+}
+
+/* Force massive page hero crowns to hit maximum weight */
+.hero-title-headline, .display-3 {
+    font-weight: 900 !important;
+}
+
+/* Force all clean paragraph subtexts to use sleek, lightweight Inter */
+p, .text-muted, .text-secondary, .lead, .nav-link, .form-label {
+    font-family: var(--font-body) !important;
+}
+
+/* Fix your muddy gray footer contrast legibility layout */
+footer, footer p, footer .text-muted, footer .text-secondary {
+    color: var(--text-muted) !important;
+    font-weight: 400 !important;
+}
+footer h5 {
+    color: #ffffff !important;
+}
