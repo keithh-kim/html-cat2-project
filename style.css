@@ -27,7 +27,7 @@
    GLOBAL BODY RESETS & TYPOGRAPHY SYSTEM
    ========================================================================== */
 body {    
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;    
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;    
   font-weight: 400;             /* Standard, crisp readable weight */
   line-height: 1.75;            /* Gives paragraphs comfortable vertical breathing room */
   color: var(--text-main);    
